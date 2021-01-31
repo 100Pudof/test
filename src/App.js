@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-date-picker';
+import { Route } from 'react-router-dom';
+import { getItems } from './redux/action/action';
+import { useDispatch, useSelector } from 'react-redux'
+import { exit } from './redux/action/action';
 import './App.scss';
+import DatePicker from 'react-date-picker';
 import Slider from './components/Slider.jsx';
 import Login from './components/formik';
-import { useDispatch, useSelector } from 'react-redux'
-import { getItems } from './redux/action/action';
 import List from './components/list';
-import { Route } from 'react-router-dom';
 
 function App() {
   const dispatch = useDispatch();
@@ -15,6 +16,9 @@ function App() {
   const isAuth = useSelector((state) => state.isAuth.isAuth);
   const count = useSelector(state => state.items.id)
 
+  const isAuthFalse = () => {
+    dispatch(exit())
+  }
   React.useEffect(() => {
     dispatch(getItems());
   }, [dispatch])
@@ -25,7 +29,17 @@ function App() {
       {!isAuth
         ? <Route exact path='/' component={Login} />
         : <div>
-          <button className="exit"> Выйти   </button>
+          <div className="exit_block">
+            <button onClick={isAuthFalse} className="exit"> Выйти   </button>
+            <div className="svg_exit">
+            <svg  width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 20H4C3.46957 20 2.96086 19.7893 2.58579 19.4142C2.21071 19.0391 2 18.5304 2 18V4C2 3.46957 2.21071 2.96086 2.58579 2.58579C2.96086 2.21071 3.46957 2 4 2H8" stroke="#1157A7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M15 16L20 11L15 6" stroke="#1157A7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M20 11H8" stroke="#1157A7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            </div>
+          </div>
+
           <div className="container_price">
             <div className="center_block">
               <div className="title_top">
@@ -47,7 +61,7 @@ function App() {
               </div>
               <div className="favorites_count">
                 {count.length > 0 ? <span className="favorites_text"> Добавлено в Избранное: <span className="span_count">{count.length}</span> рейсов</span>
-                : <span className="favorites_text"> Добавьте в избранное</span> }
+                  : <span className="favorites_text"> Добавьте в избранное</span>}
               </div>
               <div className="price_flight">
                 <div className="flight_item">

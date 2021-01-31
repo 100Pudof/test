@@ -10,6 +10,10 @@ export const setItems = (payload) => ( {
    payload, 
 })
 
+export const exit = () => ( {
+  type: 'IS_AUTH_FALSE', 
+})
+
 export const getItems = () => (dispatch) =>  {
     const options = {
       method: 'GET',
@@ -22,7 +26,6 @@ export const getItems = () => (dispatch) =>  {
     };
 
     axios.request(options).then(function (response) {
-      console.log(response.data);
       dispatch(setItems(response.data));
     }).catch(function (error) {
       console.error(error);

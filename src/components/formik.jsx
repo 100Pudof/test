@@ -1,4 +1,4 @@
-import { useDispatch  } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import React from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -6,8 +6,8 @@ import classNames from 'classnames';
 
 export default function Login() {
     const dispatch = useDispatch();
-    const sendAuth = () => {
-
+    const sendAuth = (values) => {
+        console.log(values)
         // localStorage.setItem('isAuth', true);
         dispatch({
             type: 'IS_AUTH',
@@ -29,7 +29,7 @@ export default function Login() {
                         password: ''
                     }}
                     validateOnBlur
-                    onSubmit={() => sendAuth()}
+                    onSubmit={(values) => sendAuth(values)}
                     validationSchema={validationsSchem}
                 >
                     {({

@@ -37,6 +37,7 @@ body {
   padding-bottom: 82px;
 
 }
+
 .test {
   position: absolute;
   position: absolute;
@@ -111,6 +112,7 @@ input[type=password] {
 .border_error {
   border-color: red !important;
 }
+
 .disabled_button {
   background: grey !important;
 }
@@ -258,17 +260,19 @@ label {
         letter-spacing: -0.408px;
       }
     }
-    
-      
+
+
     .ul {
       margin-left: 15px;
       margin-top: 15px;
       padding-bottom: 15px;
-      
+
     }
+
     .li_fat {
       border-bottom: 1px solid #878787;
     }
+
     li {
       display: inline-block;
       position: relative;
@@ -295,6 +299,7 @@ label {
     }
   }
 }
+
 .images_items {
   width: 164px;
   height: 149px;
@@ -318,8 +323,34 @@ label {
       fill: red;
     }
   }
-    
 }
+.exit_block {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 60px;
+}
+.exit {
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 500;
+  color: #1157A7;
+  margin-right: 15px;
+  vertical-align: center;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+   svg {
+    cursor: pointer;
+   }
+}
+
+
+.svg_exit {
+  position: absolute;
+  top: 0;
+  right: 50px;
+}
+
 ::-webkit-scrollbar {
   width: 2px;
 }
@@ -333,7 +364,7 @@ label {
   background: #1157A7;
   border-radius: 2px;
 }
+
 .react-date-picker__calendar.react-date-picker__calendar--open {
   z-index: 2;
 }
-
