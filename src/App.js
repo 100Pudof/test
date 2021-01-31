@@ -12,24 +12,20 @@ function App() {
   const dispatch = useDispatch();
   const [value, onChange] = useState(new Date());
   const point = useSelector((state) => state.items.point.Quotes);
-  const { isAuth } = useSelector((state) => state.isAuth);
+  const isAuth = useSelector((state) => state.isAuth.isAuth);
   const count = useSelector(state => state.items.id)
 
   React.useEffect(() => {
     dispatch(getItems());
   }, [dispatch])
 
-  
-
-
   return (
     <div className="wrapper_price">
 
-      {isAuth
+      {!isAuth
         ? <Route exact path='/' component={Login} />
         : <div>
           <button className="exit"> Выйти   </button>
-
           <div className="container_price">
             <div className="center_block">
               <div className="title_top">
@@ -46,18 +42,15 @@ function App() {
                   </div>
                 </div>
               </div>
-
               <div className="carousel_image">
                 <Slider />
               </div>
               <div className="favorites_count">
                 {count.length > 0 ? <span className="favorites_text"> Добавлено в Избранное: <span className="span_count">{count.length}</span> рейсов</span>
                 : <span className="favorites_text"> Добавьте в избранное</span> }
-                
               </div>
               <div className="price_flight">
                 <div className="flight_item">
-
                   <ul className="ul_fat">
                     {point
                       ? point.map((quotes, index) => (
@@ -69,17 +62,12 @@ function App() {
                       ))
                       : ''}
                   </ul>
-
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       }
-
-
-
     </div>
   );
 }
