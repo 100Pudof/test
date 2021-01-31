@@ -12,7 +12,7 @@ const imagesReduser = (state = initialState, action) => {
 
             }
             case 'ADD_FAV':
-                const old = [...state.id]
+                const old = [...state.id];
                 const id = state.id.includes(action.payload) 
                 ?  state.id.slice(0,  old.length -1 )
                 : [...state.id, action.payload]
@@ -21,8 +21,7 @@ const imagesReduser = (state = initialState, action) => {
                     ...state,
                     id
                 }
-
-
+                
                 default:
                     return state;
     }

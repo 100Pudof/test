@@ -28,7 +28,7 @@ console.log('point')
   return (
     <div className="wrapper_price">
 
-      {isAuth
+      {!isAuth
         ? <Route exact path='/' component={Login} />
         : <div>
           <button className="exit"> Выйти   </button>
