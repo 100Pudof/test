@@ -54,7 +54,7 @@ console.log('point')
                 <Slider />
               </div>
               <div className="favorites_count">
-                <span className="favorites_text"> Добавлено в Избранное: <span className="span_count">{count.length ? count.length  : '0'}</span> рейсов</span>
+                <span className="favorites_text"> Добавлено в Избранное: <span className="span_count">{count.length}</span> рейсов</span>
               </div>
               <div className="price_flight">
                 <div className="flight_item">
