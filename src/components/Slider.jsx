@@ -15,7 +15,7 @@ export default function Slider() {
         <Swiper {...params}>
             {images.map((item, idx ) => (
                 <div key={idx}>
-                    <img src={item.url} className="images_items" alt="description of image"/>
+                    <img src={item.url} className="images_items" alt="description"/>
                 </div>
             ))}
         </Swiper>

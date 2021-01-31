@@ -1,5 +1,5 @@
 const initialState = {
-    point: [],
+    point: {},
     id: [],
 };
 
@@ -12,9 +12,9 @@ const imagesReduser = (state = initialState, action) => {
 
             }
             case 'ADD_FAV':
-                const old = [...state.id];
+                 // решил не сам, но и не скопировал, доработал идею.  
                 const id = state.id.includes(action.payload) 
-                ?  state.id.slice(0,  old.length -1 )
+                ?  state.id.filter(el => el !== action.payload).slice(0)
                 : [...state.id, action.payload]
 
                 return {
@@ -30,23 +30,3 @@ const imagesReduser = (state = initialState, action) => {
 }
 
 export default imagesReduser;
-
-// const id = state.id.includes(action.payload) 
-//                 ?  state.id.filter(id => id == action.payload)
-//                 : [...state.id, action.payload]
-
-
-// const initialState = {
-//     id: [],
-// };
-
-// const imagesReduser = (state = initialState, action) => {
-//     switch (action.type) {
-//         case 'SET_ITEMS':
-//             return {
-//                 ...state,
-//                 id: [action.payload] 
-//                 ? delete [...state.id[action.payload]] 
-//                 : [action.payload],
-
-//             }

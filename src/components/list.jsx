@@ -1,21 +1,14 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { plusFavorite } from '../redux/action/action';
 
 
 export default function List({ QuoteDateTime, index, MinPrice, QuoteId, quotes }) {
     const dispatch = useDispatch();
     const [toggleFavorites, setToggleFavorites] = React.useState('false');
-    const [activeFav, setActiveFav] = React.useState(0);
-    const [flag, setFlag] = React.useState(true);
-    console.log('index: ', index)
-    console.log('quotesID ', QuoteId )
-    console.log('activeFav: ', activeFav)
-    console.log('quotes : ', quotes)
+    
     let onHandleFavorite = () => {
         setToggleFavorites(!toggleFavorites);
-        setActiveFav(index)
-        setFlag(!flag);
         dispatch(plusFavorite(QuoteId))
     }
 

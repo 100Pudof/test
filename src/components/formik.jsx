@@ -1,4 +1,3 @@
-import { createFactory } from "react";
 import { useDispatch  } from 'react-redux'
 import React from 'react';
 import { Formik } from 'formik';
@@ -7,9 +6,9 @@ import classNames from 'classnames';
 
 export default function Login() {
     const dispatch = useDispatch();
-
     const sendAuth = () => {
-        localStorage.setItem('isAuth', true);
+
+        // localStorage.setItem('isAuth', true);
         dispatch({
             type: 'IS_AUTH',
         })
@@ -19,7 +18,7 @@ export default function Login() {
         password: yup.string()
             .required('Обязательное поле')
             .min(8, 'Минимум 8 символов')
-            .matches(/[a-zA-Z]/, 'Без кирилицы')
+            .matches(/^[a-zA-Z0-9]+$/, 'Без кирилицы')
     })
     return (
         <div className="wrapper">

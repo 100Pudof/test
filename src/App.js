@@ -5,7 +5,6 @@ import Slider from './components/Slider.jsx';
 import Login from './components/formik';
 import { useDispatch, useSelector } from 'react-redux'
 import { getItems } from './redux/action/action';
-import { date } from 'yup/lib/locale';
 import List from './components/list';
 import { Route } from 'react-router-dom';
 
@@ -15,12 +14,10 @@ function App() {
   const point = useSelector((state) => state.items.point.Quotes);
   const { isAuth } = useSelector((state) => state.isAuth);
   const count = useSelector(state => state.items.id)
-  
-console.log('point')
 
   React.useEffect(() => {
     dispatch(getItems());
-  }, [])
+  }, [dispatch])
 
   
 
@@ -28,7 +25,7 @@ console.log('point')
   return (
     <div className="wrapper_price">
 
-      {!isAuth
+      {isAuth
         ? <Route exact path='/' component={Login} />
         : <div>
           <button className="exit"> Выйти   </button>
@@ -54,7 +51,9 @@ console.log('point')
                 <Slider />
               </div>
               <div className="favorites_count">
-                <span className="favorites_text"> Добавлено в Избранное: <span className="span_count">{count.length}</span> рейсов</span>
+                {count.length > 0 ? <span className="favorites_text"> Добавлено в Избранное: <span className="span_count">{count.length}</span> рейсов</span>
+                : <span className="favorites_text"> Добавьте в избранное</span> }
+                
               </div>
               <div className="price_flight">
                 <div className="flight_item">
@@ -65,6 +64,7 @@ console.log('point')
                         <List
                           index={index}
                           {...quotes}
+                          key={index}
                         />
                       ))
                       : ''}
