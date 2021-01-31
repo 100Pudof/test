@@ -14,9 +14,9 @@ function App() {
   const [value, onChange] = useState(new Date());
   const point = useSelector((state) => state.items.point.Quotes);
   const { isAuth } = useSelector((state) => state.isAuth);
-  const count = useSelector(state => state.items.count)
+  const count = useSelector(state => state.items.id)
   
-
+console.log('point')
 
   React.useEffect(() => {
     dispatch(getItems());
@@ -54,7 +54,7 @@ function App() {
                 <Slider />
               </div>
               <div className="favorites_count">
-                <span className="favorites_text"> Добавлено в Избранное: <span className="span_count">{count}</span> рейсов</span>
+                <span className="favorites_text"> Добавлено в Избранное: <span className="span_count">{count.length ? count.length  : '0'}</span> рейсов</span>
               </div>
               <div className="price_flight">
                 <div className="flight_item">
