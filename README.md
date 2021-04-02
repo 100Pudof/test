@@ -3,3 +3,4 @@
 В качестве API использован scyscanner https://rapidapi.com/skyscanner/api/skyscanner-flight-search/endpoints 
 Добавление \ удаление из избранного. 
 Карусель с картинками. 
+ 
