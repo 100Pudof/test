@@ -3,5 +3,5 @@
 В качестве API использован scyscanner https://rapidapi.com/skyscanner/api/skyscanner-flight-search/endpoints <br>
 Добавление \ удаление из избранного. <br>
 Карусель с картинками. <br>
-Deploy https://flighttestwork.herokuapp.com (загрузка страницы долгая, т.к. размещение бесплатное)
+Deploy https://flighttestwork.herokuapp.com (загрузка страницы возможна долгая, т.к. размещение бесплатное)
  
