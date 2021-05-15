@@ -60,21 +60,24 @@ function App() {
                 <Slider />
               </div>
               <div className="favorites_count">
-                {count.length > 0 ? <span className="favorites_text"> Добавлено в Избранное: <span className="span_count">{count.length}</span> рейсов</span>
-                  : <span className="favorites_text"> Добавьте в избранное</span>}
+                { count.length > 0 ? 
+                <span className="favorites_text"> Добавлено в Избранное: <span className="span_count">{count.length}</span> </span>
+                : <span className="favorites_text"> Добавьте в избранное</span> 
+                }
               </div>
               <div className="price_flight">
                 <div className="flight_item">
                   <ul className="ul_fat">
-                    {point
-                      ? point.map((quotes, index) => (
+                    { point ? 
+                      point.map((quotes, index) => (
                         <List
                           index={index}
                           {...quotes}
                           key={index}
                         />
                       ))
-                      : ''}
+                      : '' 
+                    }
                   </ul>
                 </div>
               </div>

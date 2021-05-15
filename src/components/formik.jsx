@@ -6,9 +6,7 @@ import classNames from 'classnames';
 
 export default function Login() {
     const dispatch = useDispatch();
-    const sendAuth = (values) => {
-        console.log(values)
-        // localStorage.setItem('isAuth', true);
+    const sendAuth = () => {
         dispatch({
             type: 'IS_AUTH',
         })
