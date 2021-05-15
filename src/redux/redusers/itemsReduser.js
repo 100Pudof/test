@@ -12,7 +12,6 @@ const imagesReduser = (state = initialState, action) => {
 
             }
             case 'ADD_FAV':
-                 // решил не сам, но и не скопировал, доработал идею.  
                 const id = state.id.includes(action.payload) 
                 ?  state.id.filter(el => el !== action.payload).slice(0)
                 : [...state.id, action.payload]
